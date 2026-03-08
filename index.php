@@ -3,6 +3,7 @@
 define('CONTROL', true);
 
 $routes = require_once(__DIR__ . '/inc/routes.php');
+require_once(__DIR__ . '/inc/api_consumer.php');
 
 $route = $_GET['route'] ?? 'home';
 
