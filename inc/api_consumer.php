@@ -28,6 +28,16 @@ class ApiConsumer{
     }
 
     public function getAllContries(){
-        return $this->api('all?fields=name%2Cflags');
+        $results = $this->api('all?fields=name%2Cflags');
+        $countries = [];
+        foreach($results as $result){
+            $countries[] = $result['name']['common'];
+        }
+        sort($countries);
+        return $countries;
+    }
+
+    public function getCountry($name){
+        return $this->api("name/{$name}");
     }
 }
